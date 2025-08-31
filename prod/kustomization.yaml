@@ -4,4 +4,4 @@ resources:
   - ../base/deployment.yaml
 images:
   - name: jucollet/hey-bob
-    newTag: latest
+    newTag: 1.0.0-b840e0b
