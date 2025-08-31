@@ -8,6 +8,10 @@ define gen_app_secret
 	set +a; \
 	kubectl create secret generic app-secret \
 		-n default \
+		--from-literal=OPENAI_API_KEY=$$OPENAI_API_KEY \
+		--from-literal=WWEBJS_SESSION_ID=$$WWEBJS_SESSION_ID \
+		--from-literal=WWEBJS_API_KEY=$$WWEBJS_API_KEY \
+		--from-literal=DATABASE_URL=$$DATABASE_URL \
 		--from-literal=POSTGRES_USER=$$POSTGRES_USER \
 		--from-literal=POSTGRES_PASSWORD=$$POSTGRES_PASSWORD \
 		--from-literal=POSTGRES_DB=$$POSTGRES_DB \
