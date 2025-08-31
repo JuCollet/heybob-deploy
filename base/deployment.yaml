@@ -156,13 +156,13 @@ spec:
           image: avoylenko/wwebjs-api:latest
           env:
             - name: SET_MESSAGES_AS_SEEN
-              value: TRUE
+              value: "true"
             - name: ENABLE_LOCAL_CALLBACK_EXAMPLE
-              value: FALSE
+              value: "false"
             - name: ENABLE_SWAGGER_ENDPOINT
-              value: FALSE
+              value: "false"
             - name: RECOVER_SESSIONS
-              value: TRUE
+              value: "true"
             - name: RATE_LIMIT_MAX
               value: 1000
             - name: BASE_WEBHOOK_URL
