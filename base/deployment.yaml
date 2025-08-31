@@ -96,8 +96,6 @@ spec:
       labels:
         app: app
     spec:
-      imagePullSecrets:
-        - name: dockerhub-secret
       containers:
         - name: app
           image: jucollet/hey-bob:VERSION
