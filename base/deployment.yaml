@@ -115,6 +115,21 @@ spec:
                 secretKeyRef:
                   name: app-secret
                   key: POSTGRES_DB
+            - name: POSTGRES_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: POSTGRES_PORT
+            - name: WWEBJS_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: WWEBJS_API_KEY
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: OPENAI_API_KEY
             - name: POSTGRES_HOST
               value: db
             - name: POSTGRES_PORT
@@ -162,12 +177,12 @@ spec:
             - name: RECOVER_SESSIONS
               value: "true"
             - name: RATE_LIMIT_MAX
-              value: 1000
+              value: "1000"
             - name: BASE_WEBHOOK_URL
               value: http://app:3001/messenger-hook
             - name: MAX_ATTACHMENT_SIZE
               value: "5000000"
-            - name: API_KEY
+            - name: MESSENGER_API_KEY
               valueFrom:
                 secretKeyRef:
                   name: app-secret
