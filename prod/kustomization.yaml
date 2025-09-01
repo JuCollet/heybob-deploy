@@ -5,4 +5,4 @@ resources:
   - app-secret-sealed.yaml
 images:
   - name: jucollet/hey-bob
-    newTag: 1.0.0-499d8f5
+    newTag: 1.0.0-3636371
