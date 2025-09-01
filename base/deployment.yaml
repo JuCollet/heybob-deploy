@@ -115,11 +115,6 @@ spec:
                 secretKeyRef:
                   name: app-secret
                   key: POSTGRES_DB
-            - name: POSTGRES_PORT
-              valueFrom:
-                secretKeyRef:
-                  name: app-secret
-                  key: POSTGRES_PORT
             - name: WWEBJS_API_KEY
               valueFrom:
                 secretKeyRef:
