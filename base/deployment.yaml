@@ -46,6 +46,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: db
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   ports:
     - port: 5432
@@ -138,6 +140,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: app
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
 spec:
   type: ClusterIP
   ports:
@@ -206,3 +210,25 @@ spec:
       protocol: TCP
   selector:
     app: messenger
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-migration
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  template:
+    spec:
+      containers:
+        - name: migration
+          image: jucollet/hey-bob:VERSION
+          command: ["npx", "node-pg-migrate", "up"]
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: DATABASE_URL
+      restartPolicy: Never
+  backoffLimit: 2
