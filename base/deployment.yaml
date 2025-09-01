@@ -199,8 +199,10 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - port: 3000
-    - targetPort: 3000
-    - nodePort: 32000
+    - name: http
+      port: 3000
+      targetPort: 3000
+      protocol: TCP
+      nodePort: 32000
   selector:
     app: messenger
